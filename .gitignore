@@ -1,0 +1,12 @@
+# macOS / Windows junk
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
+*.rar
+*.7z
+
+# Packager output
+release/
+.wowpkg/

@@ -1,0 +1,9 @@
+package-as: OneFiveTen
+enable-nolib-creation: no
+ignore:
+  - .github
+  - .gitignore
+  - .pkgmeta.yaml
+  - publish.sh
+  - README.md
+  - CHANGELOG.md

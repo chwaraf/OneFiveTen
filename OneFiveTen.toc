@@ -1,0 +1,11 @@
+## Interface: 20506
+## Title: OneFiveTen
+## Notes: Tiny 1/5/10 quick-stack buttons on Auctionator's selling tab - click a button to set the stack size (as if typed) and the number of stacks to max (as if pressed Max). Requires Auctionator (TBC Classic).
+## Author: YourNameHere
+## Version: 1.0.0
+## Dependencies: Auctionator
+## X-Category: Auction & Economy
+## X-License: MIT
+## X-Website: https://github.com/your-github-username/OneFiveTen
+
+OneFiveTen.lua
