@@ -2,7 +2,7 @@
 
 ## 1.0.1 (2026-08-22)
 
-- Fixed: buttons never appeared because the addon targeted old Auctionator globals (`Atr_SellControls`, `Atr_Batch_Stacksize`, …), which no longer exist in modern Auctionator v334.x.
+- Fixed - buttons never appeared because the addon targeted old Auctionator globals (`Atr_SellControls`, `Atr_Batch_Stacksize`, …), which no longer exist in modern Auctionator v334.x.
 - Rewritten against the modern Auctionator selling-tab API (`AuctionatorSellingFrame.SaleItemFrame.Stacks`).
 - Clicking a button now reuses Auctionator's own `UpdatePrices()` and `MaxNumStacksClicked()` instead of reimplementing the max-stacks math.
 - Buttons are anchored next to Auctionator's own "max: N" control under the stack-size field; install falls back to first auction-house open if frames are not ready at login.
