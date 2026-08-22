@@ -35,17 +35,17 @@ No more clicking into the stack-size box, typing `5`, then clicking Max every ti
 | Addon | Auctionator TBC flavour (BCC builds, e.g. `2.5.6`, `9.x-bcc` and later) |
 | TOC interface | `20506` (2.5.6) — on 2.5.5 the addon loads fine, just shows as "out of date" |
 
-It targets Auctionator's TBC sell tab frames (`Atr_Batch_Stacksize`, `Atr_Batch_NumAuctions`, …). If Auctionator's TBC UI ever changes, OneFiveTen detects it and simply stops without errors.
+It targets the modern Auctionator (v334.x) selling tab (`AuctionatorSellingFrame` → `SaleItemFrame` → `Stacks`). If Auctionator's UI ever changes, OneFiveTen detects it and simply stops without errors.
 
 ## How it works
 
-- **"As if I typed"** — `Atr_Batch_Stacksize:SetText(n)` plus a direct call to Auctionator's own `Atr_StackSizeChangedFunc()` — the exact handler Auctionator binds to the field's `OnTextChanged`.
-- **"As if I pressed Max"** — TBC Auctionator has no clickable Max button; its `max: N` hint under the number-of-stacks field is computed as `floor(gCurrentPane.totalItems / stackSize)`. OneFiveTen applies that same formula from the same source data, then calls Auctionator's `Atr_NumAuctionsChangedFunc()`.
-- **Loading** — `## Dependencies: Auctionator` in the `.toc` means the game will not load OneFiveTen unless Auctionator is loaded; the Lua file additionally bails out if Auctionator's frames are absent.
+- **"As if I typed"** — sets `Stacks.StackSize:SetNumber(n)` and calls Auctionator's own `SaleItem:UpdatePrices()`, so stack price, bid price, deposit and the `max: N` hint are all recomputed by Auctionator itself.
+- **"As if I pressed Max"** — calls Auctionator's own handler behind its clickable Max control, `Stacks:MaxNumStacksClicked()`, so the number-of-stacks field gets exactly the value Auctionator computes.
+- **Loading** — `## Dependencies: Auctionator` in the `.toc` means the game will not load OneFiveTen unless Auctionator is loaded; the Lua file additionally probes for Auctionator's frames lazily (install retries on the first auction-house open).
 
 ## Fine-tuning the layout
 
-All coordinates live in one table at the top of [`OneFiveTen.lua`](OneFiveTen/OneFiveTen.lua) (`OneFiveTen.LAYOUT`) — button size, gaps, and every X/Y offset are tunable there.
+Buttons sit in the stacks row, just left of the number-of-stacks EditBox; sizes/gaps live at the top of [`OneFiveTen.lua`](OneFiveTen/OneFiveTen.lua) (`BUTTON_VALUES`, button size, gap) and are tunable there.
 
 ## Development
 

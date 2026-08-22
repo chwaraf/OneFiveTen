@@ -2,7 +2,7 @@
 ## Title: OneFiveTen
 ## Notes: Tiny 1/5/10 quick-stack buttons on Auctionator's selling tab - click a button to set the stack size (as if typed) and the number of stacks to max (as if pressed Max). Requires Auctionator (TBC Classic).
 ## Author: chwaraf
-## Version: 1.0.0
+## Version: 1.0.1
 ## Dependencies: Auctionator
 ## X-Category: Auction & Economy
 ## X-License: MIT
